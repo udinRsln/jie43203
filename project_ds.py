@@ -8,17 +8,18 @@ st.write(df)
 df.isnull().sum()
 
 # HANDLE OUTLIERS FOR ADULT MORTALITY COL
-import matplotlib.pyplot as plt
-# Creating dataset
-data=df['Adult Mortality']
+plt.scatter(y_test, y_pred, label='Actual vs Predicted')
+plt.xlabel("Actual Values")
+plt.ylabel("Predicted Values")
+plt.title("Actual vs Predicted Values in Linear Regression")
 
-fig = plt.figure(figsize =(10, 7))
-# Creating plot
-plt.boxplot(data)
-# show plot
+# Plot the regression line in red
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], linestyle='--', color='red', linewidth=2, label='Regression Line')
+
+# Customize plot
+plt.legend()
 plt.show()
 st.pyplot(plt.gcf())
-# Now you can use plt to create figures and plots:
-fig = plt.figure(figsize=(10, 7))
+
 
 
