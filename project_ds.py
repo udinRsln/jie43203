@@ -17,7 +17,7 @@ fig = plt.figure(figsize =(10, 7))
 plt.boxplot(data)
 # show plot
 plt.show()
-st.ppyplot(plt.gcf())
+st.pyplot(plt.gcf())
 # Now you can use plt to create figures and plots:
 fig = plt.figure(figsize=(10, 7))
 
