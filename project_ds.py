@@ -7,7 +7,7 @@ st.write(df)
 # HANDLE OUTLIERS FOR ADULT MORTALITY COL
 import matplotlib.pyplot as plt
 # Creating dataset
-data=df['Adult Mortality']
+df=['Adult Mortality']
 
 fig = plt.figure(figsize =(10, 7))
 # Creating plot
