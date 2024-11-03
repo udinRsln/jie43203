@@ -5,6 +5,6 @@ df = pd.read_csv('https://raw.githubusercontent.com/udinRsln/jie43203/refs/heads
 st.write(df)
 
 # Checking for Null Values
-data.isnull().sum()
+df.isnull().sum()
 
 
