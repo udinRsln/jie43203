@@ -7,19 +7,20 @@ st.write(df)
 # Checking for Null Values
 df.isnull().sum()
 
-# HANDLE OUTLIERS FOR ADULT MORTALITY COL
-plt.scatter(y_test, y_pred, label='Actual vs Predicted')
-plt.xlabel("Actual Values")
-plt.ylabel("Predicted Values")
-plt.title("Actual vs Predicted Values in Linear Regression")
+from sklearn.model_selection import train_test_split
 
-# Plot the regression line in red
-plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], linestyle='--', color='red', linewidth=2, label='Regression Line')
+# DEFINE FEATURES AND TARGET VAR
+X = new_df.drop(columns=['Life expectancy ', 'Country','Status'])
+y = new_df['Life expectancy ']
 
-# Customize plot
-plt.legend()
-plt.show()
-st.pyplot(plt.gcf())
+# split dataset to train and test
+X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.2, random_state=0)
+
+from sklearn.linear_model import LinearRegression
+model = LinearRegression()
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+
 
 
 
