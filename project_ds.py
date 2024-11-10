@@ -14,3 +14,16 @@ try:
 except NameError as e:
     print(f"Error: {e}. Pastikan 'y_test' dan 'y_pred' sudah didefinisikan.")
 
+plt.scatter(y_test, y_pred, label='Actual vs Predicted')
+plt.xlabel("Actual Values")
+plt.ylabel("Predicted Values")
+plt.title("Actual vs Predicted Values in Linear Regression")
+
+# Plot the regression line in red
+plt.plot([min(y_test), max(y_test)], [min(y_test), max(y_test)], linestyle='--', color='red', linewidth=2, label='Regression Line')
+
+# Customize plot
+plt.legend()
+plt.show()
+
+
