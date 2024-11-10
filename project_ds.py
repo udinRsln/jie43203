@@ -13,14 +13,30 @@ from sklearn.model_selection import train_test_split
 X = new_df.drop(columns=['Life expectancy ', 'Country','Status'])
 y = new_df['Life expectancy ']
 
-# split dataset to train and test
-X_train, X_test, y_train, y_test = train_test_split(X, y,test_size=0.2, random_state=0)
+import numpy as np
+# Identify and remove outliers using the IQR method
+Q1 = np.percentile(data,25)
+Q3 = np.percentile(data,75)
+IQR = Q3 - Q1
+lower_bound = Q1 - 1.5 * IQR
+upper_bound = Q3 + 1.5 * IQR
 
-from sklearn.linear_model import LinearRegression
-model = LinearRegression()
-model.fit(X_train, y_train)
-y_pred = model.predict(X_test)
+outliers = (df < lower_bound) | (df > upper_bound)
 
+# Print the indices of the outliers
+print("Indices of outliers:", np.where(outliers))
+
+# Remove outliers from the dataset
+cleaned_df = df[~outliers]
+
+# Creating a new boxplot without outliers
+fig, ax = plt.subplots(figsize=(10, 7))
+ax.boxplot(cleaned_df)
+
+# Show the updated plot
+plt.show()
+
+new_df=df[df['Adult Mortality']<upper_bound]
 
 
 
