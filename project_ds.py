@@ -14,7 +14,7 @@ try:
 
 
 
- plt.scatter(y_test, y_pred, label='Actual vs Predicted')
+    plt.scatter(y_test, y_pred, label='Actual vs Predicted')
     plt.xlabel("Actual Values")
     plt.ylabel("Predicted Values")
     plt.title("Actual vs Predicted Values in Linear Regression")
